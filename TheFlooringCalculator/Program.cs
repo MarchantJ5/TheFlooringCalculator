@@ -145,13 +145,22 @@ namespace The_Flooring_Calculator
                     Console.WriteLine();
                 }
             } while (!validResponse);
-
-
-            Console.WriteLine();
-            Console.Write("\tEnter width of room:");
-            userResponse = Console.ReadLine();
-            int.TryParse(userResponse, out roomWidth);
-
+            do
+            {
+                validResponse = false;
+                Console.Write("\tEnter width of room:");
+                userResponse = Console.ReadLine();
+                if (int.TryParse(userResponse, out roomWidth) && roomWidth > 0)
+                {
+                    validResponse = true;
+                }
+                else
+                {
+                    Console.WriteLine("\tPlease enter a number for the length of the room");
+                    Console.WriteLine("\tPlease re-enter your value");
+                    Console.WriteLine();
+                }
+            } while (!validResponse);
             //
             // get flooring type and validate
             //
